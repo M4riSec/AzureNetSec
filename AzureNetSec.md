@@ -18,7 +18,8 @@ The environment is hardened by applying security controls and operates another 2
 	
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+![Architecture Diagram](https://github.com/M4riSec/AzureNetSec/assets/103901296/019119d6-0753-40c2-82ae-ad539bf4d3e0)
+
 
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
