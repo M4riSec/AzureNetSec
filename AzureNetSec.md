@@ -22,26 +22,30 @@ The environment is hardened by applying security controls and operates another 2
 
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+![Architecture Diagram](https://github.com/M4riSec/AzureNetSec/assets/103901296/c11c83fd-833e-4dd7-80fc-5f6f8063207a)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+
+The architecture of the honeynet in Azure consists of the following:
 
 - Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
+- Network Security Group/Firewall ![image](https://github.com/M4riSec/AzureNetSec/assets/103901296/2bc35730-9b4d-43b6-8cd3-8aaf4678df38)
+- Virtual Machines (1 windows w/ a SQL server, 1 windows, 1 linux)
 - Log Analytics Workspace
 - Azure Key Vault
 - Azure Storage Account
 - Microsoft Sentinel
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+For the Insecure metrics, all resources were deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls blocking zero incoming or outgoing traffic, and all other resources were deployed with public endpoints visible to the Internet.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+For the Secure metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoints.
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+### Malicious Traffic through NSG's + Firewalls
+![image](https://github.com/M4riSec/AzureNetSec/assets/103901296/50b7ec53-67d9-44cd-a15c-71326b360528)<br>
+### Linux Syslog Auth Failures
+![image](https://github.com/M4riSec/AzureNetSec/assets/103901296/824bb4b9-6199-494a-ba97-20dec3aa8c3c)<br>
+### Windows RDP/SMB Auth Failures
+![image](https://github.com/M4riSec/AzureNetSec/assets/103901296/18d29d97-6a85-424a-9e09-c58f6c13d9a1)<br>
 
 ## Metrics Before Hardening / Security Controls
 
