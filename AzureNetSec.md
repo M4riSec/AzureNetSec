@@ -47,40 +47,40 @@ For the Secure metrics, Network Security Groups were hardened by blocking ALL tr
 ### Windows RDP/SMB Auth Failures
 ![image](https://github.com/M4riSec/AzureNetSec/assets/103901296/18d29d97-6a85-424a-9e09-c58f6c13d9a1)<br>
 
-## Metrics Before Hardening / Security Controls
+## Metrics Before Hardening Environment
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2023-03-15 17:04:29
-Stop Time 2023-03-16 17:04:29
+The following table shows the metrics we measured in our insecure environment for 24 hours:<br>
+>Start Time 2023-07-11 21:13:29<br>
+>Stop Time 2023-07-12 21:13:29
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 19470
-| Syslog                   | 3028
-| SecurityAlert            | 10
-| SecurityIncident         | 348
-| AzureNetworkAnalytics_CL | 843
+| SecurityEvent            | 127111
+| Syslog                   | 1263
+| SecurityAlert            | 23
+| SecurityIncident         | 193
+| AzureNetworkAnalytics_CL | 2360
 
-## Attack Maps Before Hardening / Security Controls
+## Attack Maps After Hardening / Security Controls
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+```All map queries returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
 
 ## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2023-03-18 15:37
-Stop Time	2023-03-19 15:37
+The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:<br>
+>Start Time 2023-07-15 01:28:25<br>
+>Stop Time 2023-07-16 01:28:25
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 8778
-| Syslog                   | 25
+| SecurityEvent            | 582
+| Syslog                   | 24
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+In this project, a honeynet was engineered in Microsoft Azure and log sources were aggregated into a Log Analytics workspace. Microsoft Sentinel was activated to trigger alerts and generate incidents based on the ingested logs. Additionally, activity was measured in the insecure environment before security controls were applied, and then again after implementing security controls. It is noteworthy that the number of security events and incidents were reduced by a minimum of 98% after the security controls were established, demonstrating their effectiveness.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+It's also noteworthy that if the resources within the network were heavily utilized by regular users, more security events and alerts would have been generated within the same secure 24-hour period following the implementation.
